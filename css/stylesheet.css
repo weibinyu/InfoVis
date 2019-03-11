@@ -1,0 +1,14 @@
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* padding-bottom: 10%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    border: solid 1px black;
+    display: inline-block;
+    left: 0;
+}

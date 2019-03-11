@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+</head>
+<body>
+    <div>
+        <button id="hideT" >Hide/Show Overview</button>
+        <button id="remove">RemoveC</button>
+    </div>
+    <svg id="treeS" class="svg-container svg-content-responsive"
+         viewBox="0 0 1300 500" preserveAspectRatio="xMinYMin meet"> //scale inner element
+        <g id="tree">
+
+        </g>
+    </svg>
+    <svg id="svg" style="border: solid 1px black" viewBox="0 0 1300 800">
+        <g id="makerPublish" style="transform: translate(100px,50px)">
+
+        </g>
+    </svg>
+    <div id="container"></div>
+</body>
+    <script src="https://d3js.org/d3.v5.min.js" ></script>
+    <script src="../js/controller.js"></script>
+</html>
