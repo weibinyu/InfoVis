@@ -9,39 +9,43 @@ d3.select("#hideT").on("click",function () {
 });
 function showData(cars) {
 
-
     let treeData = treeDataProcess(cars);
     console.log(treeData);
     showTree(treeData);
     let data = dataRearrange(cars);
     showScatter(data);
-
+    d3.select("#min-price").on("change",function () {
+        let value = this.value;
+        let fd = data.filter(c => c.price > value);
+        console.log(value);
+        showScatter(fd);
+    })
 }
 
 function showScatter(data) {
-    let max = d3.max(data,d => d.price);
-    console.log(max);
-    let extend = d3.extent(data,d => d.horsepower);
-    let xScale = d3.scaleLinear().domain([0,max]).range([0,600]);  //domain maps value to range. In here domain 0 is range 0
+    let extent1 = d3.extent(data,d => d.price);
+    let extent2 = d3.extent(data,d=>d.horsepower);
 
-    let yScale = d3.scaleLinear().domain([extend[1],0]).range([0,600]);
-
+    let xScale = d3.scaleLinear().domain(extent1).range([0,400]);  //domain maps value to range. In here domain 0 is range 0
+    let yScale = d3.scaleLinear().domain([extent2[1],extent2[0]]).range([0,400]);
     let join = makerPublish.selectAll("circle").data(data);
-    join.enter().append("circle").attr("fill","blue").attr("r", 5)
+    let newE = join.enter().append("circle").attr("fill","blue").attr("r", 5)
         .attr("cx",d=>xScale(d.price)).attr("cy",d => yScale(d.horsepower))
         .on("click",d=> {
-            alert(d.make)
+            alert(d.price)
         }).on("mouseover",function () {
         this.style.fill = "red"             //can't have => when use this
     }).on("mouseout",function () {
         this.style.fill = "blue"
     });
+    join.merge(newE).attr("cx",d=>xScale(d.price)).attr("cy",d => yScale(d.horsepower)).transition();
 
+    join.exit().remove();
 
-    makerPublish.append("g").attr("transform","translate(0,600)")
-        .call(d3.axisBottom(xScale).ticks(10).tickFormat(x=>x+"$"));
-    makerPublish.append("g").attr("transform","translate(0,0)")
-        .call(d3.axisLeft(yScale));
+    let yAxis = d3.axisLeft(yScale);
+    let xAxis = d3.axisBottom(xScale);
+    let yAxisC = d3.select("#yAxis").style("transform","translate(0,0)").transition().call(yAxis);
+    let xAxisC = d3.select("#xAxis").style("transform","translate(0,400)").transition().call(xAxis);
 }
 function showTree(data) {
     let tree = d3.select("#tree");
@@ -51,10 +55,10 @@ function showTree(data) {
     console.log(bodyHeight);
     let bodyWidth = 1300;
     let colorR = [
-        0xd5fe14, 0xfec7f8, 0x0b7b3e, 0x0bf0e9, 0xc203c8, 0xfd9b39, 0x888593,
-        0x906407, 0x98ba7f, 0xfe6794, 0x10b0ff, 0xac7bff, 0xfee7c0, 0x964c63,
-        0x1da49c, 0x0ad811, 0xbbd9fd, 0xfe6cfe, 0x297192, 0xd1a09c, 0x78579e,
-        0x81ffad, 0x739400, 0xca6949, 0xd9bf01, 0x646a58, 0xd5097e, 0xbb73a9,
+        0xfec7f8, 0x0b7b3e, 0xc203c8, 0xfd9b39, 0x888593,
+        0x906407, 0x98ba7f, 0xfe6794, 0x10b0ff, 0xac7bff, 0x964c63,
+        0x1da49c, 0x0ad811, 0xfe6cfe, 0x297192, 0xd1a09c, 0x78579e,
+        0x739400, 0xca6949, 0xd9bf01, 0x646a58, 0xd5097e, 0xbb73a9,
     ].map(d3_rgbString);
 
     let treemap = d3.treemap().size([bodyWidth,bodyHeight]).paddingInner(1);
