@@ -6,9 +6,37 @@
     <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 </head>
 <body>
+    <div id="tooltip">
+        <div class="text" id = "make">Maker: </div>
+        <div class="text" id = "price">Price:</div>
+        <div class="text" id = "hp">HorsePower:</div>
+        <div class="text" id = "nod">Doors:</div>
+        <div class="text" id = "nl">HorsePower:</div>
+        <div class="text" id = "risk">Risk factor:</div>
+        <div class="text" id = "ft">Fuel type:</div>
+        <div class="text" id = "length">Length:</div>
+        <div class="text" id = "el">Engine location:</div>
+        <div class="text" id = "width">Width:</div>
+        <div class="text" id = "wb">Wheel base:</div>
+        <div class="text" id = "height">Height:</div>
+        <div class="text" id = "bs">Body style:</div>
+        <div class="text" id = "stroke">Stroke:</div>
+        <div class="text" id = "dw">Drive wheels:</div>
+        <div class="text" id = "pr">Peak rpm:</div>
+        <div class="text" id = "cw">Curb weight:</div>
+        <div class="text" id = "et">Engine type:</div>
+        <div class="text" id = "noc">Cylinders:</div>
+        <div class="text" id = "es">Engine size:</div>
+        <div class="text" id = "fs">Fuel system:</div>
+        <div class="text" id = "bore">Bore:</div>
+        <div class="text" id = "cr">Compression ratio:</div>
+        <div class="text" id = "cm">City mpg:</div>
+        <div class="text" id = "hm">Highway mpg:</div>
+
+
+    </div>
     <div>
         <button id="hideT" >Hide/Show Overview</button>
-        <button id="remove">RemoveC</button>
     </div>
     <svg id="treeS" class="svg-container svg-content-responsive"
          viewBox="0 0 1300 500" preserveAspectRatio="xMinYMin meet"> //scale inner element
@@ -16,18 +44,249 @@
 
         </g>
     </svg>
-    <svg id="svg" style="border: solid 1px black" viewBox="0 0 1300 500">
-        <g id="makerPublish" style="transform: translate(50px,25px)">
-            <foreignobject class="node" x="500" y="100" width="100" height="100">
-                <div>Min Price:<input id="min-price" type="number"/></div>
+    <svg id="svg" style="border: solid 1px black" viewBox="0 0 1300 550">
+        <g id="makerPublish" width="650px" style="transform: translate(50px,25px)">
+            <foreignobject class="node" x="410" y="0" width="330" height="550">
+                <div>
+                    <div>
+                        Min Price:<input id="minP" class="change" type="number" value="5151" oninput="this.value=this.value.slice(0,5)"/>
+                        Max Price:<input id="maxP" class="change" type="number" value="45400" oninput="this.value=this.value.slice(0,5)"/>
+                    </div>
+                    <div>
+                        Min &nbsp&nbsp HP:<input id="minHP" class="change" type="number" value="40" oninput="this.value=this.value.slice(0,5)"/>
+                        Max &nbsp&nbsp HP:<input id="maxHP" class="change" type="number" value="270" oninput="this.value=this.value.slice(0,5)"/>
+                    </div>
+                    <div>
+                        Min Losses:<input id="minL" class="change" type="number" value="60" oninput="this.value=this.value.slice(0,5)"/>
+                        Max Losses:<input id="maxL" class="change" type="number" value="260" oninput="this.value=this.value.slice(0,5)"/>
+                    </div>
+                    <div class="cc">
+                        <button class="collapsible">Risk factor</button>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" id="r-2" class="change" checked>
+                                <label for="r-2">-2</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="r-1" class="change" checked>
+                                <label for="r-1">-1</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="r0" class="change" checked>
+                                <label for="r0">0</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="r1" class="change" checked>
+                                <label for="r1">1</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="r2" class="change" checked>
+                                <label for="r2">2</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="r3" class="change" checked>
+                                <label for="r3">3</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <button class="collapsible">Maker</button>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" id="subaru" class="change" checked>
+                                <label for="subaru">subaru</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="chevrolet" class="change" checked>
+                                <label for="chevrolet">chevrolet</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="mazda" class="change" checked>
+                                <label for="mazda">mazda</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="honda" class="change" checked>
+                                <label for="honda">honda</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="dodge" class="change" checked>
+                                <label for="dodge">dodge</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="isuzu" class="change" checked>
+                                <label for="isuzu">isuzu</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="alfa-romero" class="change" checked>
+                                <label for="alfa-romero">alfa-romero</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="audi" class="change" checked>
+                                <label for="audi">audi</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="bmw" class="change" checked>
+                                <label for="bmw">bmw</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="jaguar" class="change" checked>
+                                <label for="jaguar">jaguar</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="toyota" class="change" checked>
+                                <label for="toyota">toyota</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="mitsubishi" class="change" checked>
+                                <label for="mitsubishi">mitsubishi</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="nissan" class="change" checked>
+                                <label for="nissan">nissan</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="plymouth" class="change" checked>
+                                <label for="plymouth">plymouth</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="renault" class="change" checked>
+                                <label for="renault">renault</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="saab" class="change" checked>
+                                <label for="saab">saab</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="volkswagen" class="change" checked>
+                                <label for="volkswagen">volkswagen</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="volvo" class="change" checked>
+                                <label for="volvo">volvo</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="peugot" class="change" checked>
+                                <label for="peugot">peugot</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="porsche" class="change" checked>
+                                <label for="porsche">porsche</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="mercury" class="change" checked>
+                                <label for="mercury">mercury</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="mercedes-benz" class="change" checked>
+                                <label for="mercedes-benz">mercedes-benz</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <button class="collapsible">Doors</button>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" id="two" class="change" checked>
+                                <label for="two">Two</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="four" class="change" checked>
+                                <label for="four">Four</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <button class="collapsible">Fuel</button>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" id="gas" class="change" checked>
+                                <label for="gas">Gas</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="diesel" class="change" checked>
+                                <label for="diesel">Diesel</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <button class="collapsible">Aspiration</button>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" id="std" class="change" checked>
+                                <label for="std">Std</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="turbo" class="change" checked>
+                                <label for="turbo">turbo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <button class="collapsible">Style</button>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" id="convertible" class="change" checked>
+                                <label for="convertible">Convertible</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="hatchback" class="change" checked>
+                                <label for="hatchback">hatchback</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="sedan" class="change" checked>
+                                <label for="sedan">Sedan</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="wagon" class="change" checked>
+                                <label for="wagon">Wagon</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="hardtop" class="change" checked>
+                                <label for="hardtop">Hardtop</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <button class="collapsible">Drive wheel</button>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" id="rwd" class="change" checked>
+                                <label for="rwd">rwd</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="4wd" class="change" checked>
+                                <label for="4wd">4wd</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="fwd" class="change" checked>
+                                <label for="fwd">fwd</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cc">
+                        <button class="collapsible">Engine location</button>
+                        <div class="content">
+                            <div>
+                                <input type="checkbox" id="front" class="change" checked>
+                                <label for="front">front</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="rear" class="change" checked>
+                                <label for="rear">rear</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </foreignobject>
             <g id="yAxis"></g>
             <g id="xAxis" style="transform: translate(0px,400px)"></g>
         </g>
+        <g id="makerPublish2" width="650px" style="transform: translate(850px,25px)">
+            <g id="yAxis2"></g>
+            <g id="xAxis2" style="transform: translate(0px,400px)"></g>
+        </g>
     </svg>
-    <div id="filter">
-
-    </div>
 </body>
     <script src="https://d3js.org/d3.v5.min.js" ></script>
     <script src="../js/controller.js"></script>

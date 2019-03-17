@@ -12,3 +12,57 @@
     display: inline-block;
     left: 0;
 }
+input[type=number]{
+    width: 60px;
+}
+.cc{
+    width: 150px;
+    float: left;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 0px;
+    width: 100%;
+    border: solid 1px;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    position: absolute;
+    float: left;
+    width: 150px;
+}
+#tooltip{
+    width: 265px;
+    border:solid 1px black;
+    padding :5px;
+    position: absolute;
+    display: none;
+    background-color: #f1f1f1;
+    z-index: 4;
+    float: left;
+}
+.text{
+    float: left;
+    overflow: hidden;
+    padding-right:5px;
+}
+div{
+    display: inline-block
+}
