@@ -100,6 +100,20 @@ function showData(cars) {
         let wd4 = document.getElementById("4wd").checked;
         let front = document.getElementById("front").checked;
         let rear = document.getElementById("rear").checked;
+        let dohc = document.getElementById("dohc").checked;
+        let dohcv = document.getElementById("dohcv").checked;
+        let l = document.getElementById("l").checked;
+        let ohc = document.getElementById("ohc").checked;
+        let ohcf = document.getElementById("ohcf").checked;
+        let ohcv = document.getElementById("ohcv").checked;
+        let rotor = document.getElementById("rotor").checked;
+        if(!ohcv) dataF = dataF.filter(c => c["engine-type"] !== "ohcv");
+        if(!rotor) dataF = dataF.filter(c => c["engine-type"] !== "rotor");
+        if(!dohc) dataF = dataF.filter(c => c["engine-type"] !== "dohc");
+        if(!dohcv) dataF = dataF.filter(c => c["engine-type"] !== "dohcv");
+        if(!l) dataF = dataF.filter(c => c["engine-type"] !== "l");
+        if(!ohc) dataF = dataF.filter(c => c["engine-type"] !== "ohc");
+        if(!ohcf) dataF = dataF.filter(c => c["engine-type"] !== "ohcf");
         if(!front) dataF = dataF.filter(c => c["engine-location"] !== "front");
         if(!rear) dataF = dataF.filter(c => c["engine-location"] !== "rear");
         if(!fwd) dataF = dataF.filter(c => c["drive-wheels"] !== "fwd");
@@ -112,6 +126,39 @@ function showData(cars) {
         if(!hatchback) dataF = dataF.filter(c => c["body-style"] !== "hatchback");
         if(!std) dataF = dataF.filter(c => c.aspiration !== "std");
         if(!turbo) dataF = dataF.filter(c => c.aspiration !== "turbo");
+
+        let twoc = document.getElementById("twoc").checked;
+        let three = document.getElementById("three").checked;
+        let fourc = document.getElementById("fourc").checked;
+        let five = document.getElementById("five").checked;
+        let six = document.getElementById("six").checked;
+        let eight = document.getElementById("eight").checked;
+        let twelve = document.getElementById("twelve").checked;
+        if(!twoc) dataF = dataF.filter(c => c["num-of-cylinders"] !== "two");
+        if(!three) dataF = dataF.filter(c => c["num-of-cylinders"] !== "three");
+        if(!fourc) dataF = dataF.filter(c => c["num-of-cylinders"] !== "four");
+        if(!five) dataF = dataF.filter(c => c["num-of-cylinders"] !== "five");
+        if(!six) dataF = dataF.filter(c => c["num-of-cylinders"] !== "six");
+        if(!eight) dataF = dataF.filter(c => c["num-of-cylinders"] !== "eight");
+        if(!twelve) dataF = dataF.filter(c => c["num-of-cylinders"] !== "twelve");
+
+
+        let bbl1 = document.getElementById("1bbl").checked;
+        let bbl2 = document.getElementById("2bbl").checked;
+        let bbl4 = document.getElementById("4bbl").checked;
+        let idi = document.getElementById("idi").checked;
+        let mfi = document.getElementById("mfi").checked;
+        let mpfi = document.getElementById("mpfi").checked;
+        let spdi = document.getElementById("spdi").checked;
+        let spfi = document.getElementById("spfi").checked;
+        if(!bbl1) dataF = dataF.filter(c => c["fuel-system"] !== "1bbl");
+        if(!bbl2) dataF = dataF.filter(c => c["fuel-system"] !== "2bbl");
+        if(!bbl4) dataF = dataF.filter(c => c["fuel-system"] !== "4bbl");
+        if(!idi) dataF = dataF.filter(c => c["fuel-system"] !== "idi");
+        if(!mfi) dataF = dataF.filter(c => c["fuel-system"] !== "mfi");
+        if(!mpfi) dataF = dataF.filter(c => c["fuel-system"] !== "mpfi");
+        if(!spdi) dataF = dataF.filter(c => c["fuel-system"] !== "spdi");
+        if(!spfi) dataF = dataF.filter(c => c["fuel-system"] !== "spfi");
 
         showScatter(dataF);
         showScatter2(dataF);
